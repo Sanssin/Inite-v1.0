@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>@yield('title','Inite')</title>
+  <title>@yield('title','Inite: Indonesian Nuclear Interactive Website')</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 

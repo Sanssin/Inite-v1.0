@@ -56,7 +56,7 @@
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-            <img src="{{ asset('template/assets/img/hero-img.png') }}" class="img-fluid animated" alt="">
+            <img src="{{ asset('template/assets/img/nuclear.png') }}" class="img-fluid animated" alt="" style="max-width: auto; height: 85%;" >
           </div>
         </div>
       </div>

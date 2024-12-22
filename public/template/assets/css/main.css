@@ -176,7 +176,7 @@ h6 {
   background: var(--accent-color);
   font-size: 14px;
   padding: 8px 25px;
-  margin: 0 0 0 30px;
+  margin: 0 30px 0 30px;
   border-radius: 50px;
   transition: 0.3s;
 }
@@ -188,20 +188,33 @@ h6 {
 }
 
 @media (max-width: 1200px) {
-  .header .logo {
-    order: 1;
-  }
-
-  .header .btn-getstarted {
-    order: 2;
-    margin: 0 15px 0 0;
-    padding: 6px 15px;
+  .header .container-xl {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .header .navmenu {
-    order: 3;
+    order: 1;
   }
-}
+
+  .header .logo {
+    order: 2;
+  }
+
+  .header .btn-getstarted {
+    order: 3;
+    margin: 0 20px 0 0;
+    padding: 6px 15px;
+    align-items: right;
+  }
+
+  .header .navbar-nav {
+    order: 4;
+    margin-left: 0;
+  }
+
+  }
 
 /* Index Page Header
 ------------------------------*/
@@ -225,6 +238,7 @@ h6 {
   .navmenu {
     padding: 0;
   }
+
 
   .navmenu ul {
     margin: 0;

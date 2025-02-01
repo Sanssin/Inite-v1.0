@@ -4,10 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class PortfolioController extends Controller
+class NuclearpediaController extends Controller
 {
     public function showDetail()
     {
-        return view('Template.portfolioDetail');
+        return view('Template.nuclearpediaDetail');
     }
 }

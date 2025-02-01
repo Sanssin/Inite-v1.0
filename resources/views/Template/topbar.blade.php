@@ -1,7 +1,7 @@
-<header id="header" class="header d-flex align-items-center fixed-top">
+<header id="header" class="header d-flex align-items-center fixed-top" style="background-color: rgba(40, 58, 90, 0.9);">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#hero' : '#hero' }}" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">Inite</h1>
@@ -9,21 +9,12 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="{{ request()->is('portfolioDetail') ? url('/') . '#hero' : '#hero' }}" class="active">Home</a></li>
-          <li><a href="{{ request()->is('portfolioDetail') ? url('/') . '#about' : '#about' }}">About</a></li>
-          <li><a href="{{ request()->is('portfolioDetail') ? url('/') . '#portfolio' : '#portfolio' }}">Nuclearpedia</a></li>
-          <li><a href="{{ request()->is('portfolioDetail') ? url('/') . '#services' : '#services' }}">Services</a></li>
-          <li><a href="{{ request()->is('portfolioDetail') ? url('/') . '#team' : '#team' }}">Team</a></li>
-          <li><a href="{{ request()->is('portfolioDetail') ? url('/') . '#pricing' : '#pricing' }}">Pricing</a></li>
-          <li class="dropdown"><a href="#"><span>Simulasi</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li><a href="{{ request()->is('portfolioDetail') ? url('/') . '#contact' : '#contact' }}">Contact</a></li>
+          <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#hero' : '#hero' }}" class="active">Home</a></li>
+          <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#about' : '#about' }}">About</a></li>
+          <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#nuclearpedia' : '#nuclearpedia' }}">Nuclearpedia</a></li>
+          <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#services' : '#services' }}">Services</a></li>
+          <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#team' : '#team' }}">Team</a></li>
+          <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#contact' : '#contact' }}">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>

@@ -15,7 +15,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="{{ asset('template/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -36,34 +36,34 @@
   ======================================================== -->
 </head>
 
-<body class="portfolio-details-page">
+<body class="nuclearpedia-details-page">
 
 @include('Template.topbar')
 
   <main class="main">
 
     <!-- Page Title -->
-    <div class="page-title" data-aos="fade">
+    <div class="page-title" data-aos="fade" style="margin-top: 85px;">
       <div class="container">
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Portfolio Details</li>
+            <li><a href="{{ url('/') . '#hero' }}">Home</a></li>
+            <li class="current">Nuclearpedia Details</li>
           </ol>
         </nav>
-        <h1>Portfolio Details</h1>
+        <h1>Nuclearpedia Details</h1>
       </div>
     </div><!-- End Page Title -->
 
-    <!-- Portfolio Details Section -->
-    <section id="portfolio-details" class="portfolio-details section">
+    <!-- nuclearpedia Details Section -->
+    <section id="nuclearpedia-details" class="nuclearpedia-details section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
         <div class="row gy-4">
 
           <div class="col-lg-8">
-            <div class="portfolio-details-slider swiper init-swiper">
+            <div class="nuclearpedia-details-slider swiper init-swiper">
 
               <script type="application/json" class="swiper-config">
                 {
@@ -84,19 +84,19 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="{{ asset('template/assets/img/portfolio/app-1.jpg') }}" alt="">
+                  <img src="{{ asset('template/assets/img/nuclearpedia/app-1.jpg') }}" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="{{ asset('template/assets/img/portfolio/product-1.jpg') }}" alt="">
+                  <img src="{{ asset('template/assets/img/nuclearpedia/product-1.jpg') }}" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="{{ asset('template/assets/img/portfolio/branding-1.jpg') }}" alt="">
+                  <img src="{{ asset('template/assets/img/nuclearpedia/branding-1.jpg') }}" alt="">
                 </div>
 
                 <div class="swiper-slide">
-                  <img src="{{ asset('template/assets/img/portfolio/books-1.jpg') }}" alt="">
+                  <img src="{{ asset('template/assets/img/nuclearpedia/books-1.jpg') }}" alt="">
                 </div>
 
               </div>
@@ -105,7 +105,7 @@
           </div>
 
           <div class="col-lg-4">
-            <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
+            <div class="nuclearpedia-info" data-aos="fade-up" data-aos-delay="200">
               <h3>Project information</h3>
               <ul>
                 <li><strong>Category</strong>: Web design</li>
@@ -114,7 +114,7 @@
                 <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
               </ul>
             </div>
-            <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
+            <div class="nuclearpedia-description" data-aos="fade-up" data-aos-delay="300">
               <h2>Exercitationem repudiandae officiis neque suscipit</h2>
               <p>
                 Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
@@ -126,7 +126,7 @@
 
       </div>
 
-    </section><!-- /Portfolio Details Section -->
+    </section><!-- /nuclearpedia Details Section -->
 
   </main>
 

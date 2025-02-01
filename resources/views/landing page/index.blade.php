@@ -284,7 +284,7 @@
 
     </section><!-- /Call To Action Section -->
 
-    <!-- Portfolio Section -->
+    <!-- nuclearpedia Section -->
     @include('Landing page.nuclearpedia')
 
     <!-- Team Section -->

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NuclearpediaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PortfolioController;
 
@@ -18,4 +19,4 @@ Route::get('/', function () {
     return view('landing page/index');
 });
 
-Route::get('/portfolioDetail', [PortfolioController::class, 'showDetail']);
+Route::get('/nuclearpediaDetail', [NuclearpediaController::class, 'showDetail']);

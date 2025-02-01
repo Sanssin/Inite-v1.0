@@ -342,7 +342,7 @@
     </section><!-- /Call To Action Section -->
 
     <!-- Portfolio Section -->
-    @include('Landing page.portfolio')
+    @include('Landing page.nuclearpedia')
 
     <!-- Team Section -->
     <section id="team" class="team section">

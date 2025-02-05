@@ -27,43 +27,13 @@
             data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <img src="{{ asset('template/assets/img/default.png') }}" alt="user" width="40" class="profile-pic rounded-circle object-fit-cover" />
           </a>
-          <div
-            class="
-            dropdown-menu dropdown-menu-end
-            mailbox
-            dropdown-menu-animate-up
-          ">
-            <ul class="list-style-none">
-              <li class="p-30 pb-2">
-              <div class="rounded-top d-flex align-items-center">
-                <h3 class="card-title mb-0">Profil Kamu</h3>
-                  <div class="ms-auto">
-                    <a href="javascript:void(0)" class="link py-0">
-                    <i data-feather="x-circle"></i>
-                    </a>
-                  </div>
-              </div>
-              <div class="d-flex align-items-center mt-4 pt-3 pb-4 border-bottom">
-                <img src="{{ asset('template/assets/img/default.png') }}" alt="user" width="90" class="rounded-circle object-fit-cover" />
-                  <div class="ms-4">
-                    <h4 class="mb-0">
-                      Ihsan</h4>
-                    <span class="text-muted">Administrator</span>
-                    <p class="text-muted mb-0 mt-1">
-                    <i data-feather="mail" class="feather-sm me-1"></i>
-                    email
-                    </p>
-                  </div>
-              </div>
-              </li>
-              <li class="p-30 pt-0">
-                <div class="message-center message-body position-relative" style="height: 150px">
-                </div>
-                <div class="mt-0 d-flex justify-content-center">
-                  <a href="javascript:void(0)" class="btn btn-primary btn-sm">Lihat Profil</a>
-              </div>
-              </li>
-            </ul>
+          <div class="dropdown-menu dropdown-menu-end mailbox dropdown-menu-animate-up text-center">
+            <div class="card-body profile-card">
+              <center class="mt-4">
+                <img src="{{ asset('template/assets/img/default.png') }}"/>
+                <h3 class="mt-2 text-dark">Guest</h3>
+              </center>
+            </div>
           </div>
         </li>
       </ul>

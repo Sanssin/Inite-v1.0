@@ -135,7 +135,14 @@
     faqItem.addEventListener('click', () => {
       faqItem.parentNode.classList.toggle('faq-active');
     });
-  });
+  });   
+
+  // document.querySelectorAll('.faq-item h3').forEach(item => {
+  //   item.addEventListener('click', () => {
+  //     let parent = item.parentNode;
+  //     parent.classList.toggle('faq-active');
+  //   });
+  // });
 
   /**
    * Animate the skills items on reveal

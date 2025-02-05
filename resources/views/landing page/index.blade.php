@@ -214,38 +214,6 @@
       </div>
 
     </section><!-- /Why Us Section -->
-    <style>
-  .faq-item h3 {
-    font-size: 16px; 
-    cursor: pointer;
-  }
-
-  .faq-content {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: max-height 0.3s ease, opacity 0.3s ease;
-  }
-
-  .faq-item.faq-active .faq-content {
-    max-height: 200px; 
-    opacity: 1;
-  }
-
-  .faq-item img {
-    max-width: 100px; 
-    border-radius: 10px;
-  }
-</style>
-
-<script>
-  document.querySelectorAll('.faq-item h3').forEach(item => {
-    item.addEventListener('click', () => {
-      let parent = item.parentNode;
-      parent.classList.toggle('faq-active');
-    });
-  });
-</script>
 
     <!-- Services Section -->
     <section id="services" class="services section light-background">

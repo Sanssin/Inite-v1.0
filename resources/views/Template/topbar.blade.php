@@ -11,8 +11,8 @@
         <ul>
           <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#hero' : '#hero' }}" class="active">Home</a></li>
           <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#about' : '#about' }}">About</a></li>
-          <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#nuclearpedia' : '#nuclearpedia' }}">Nuclearpedia</a></li>
           <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#services' : '#services' }}">Services</a></li>
+          <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#nuclearpedia' : '#nuclearpedia' }}">Nuclearpedia</a></li>
           <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#team' : '#team' }}">Team</a></li>
           <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#contact' : '#contact' }}">Contact</a></li>
         </ul>

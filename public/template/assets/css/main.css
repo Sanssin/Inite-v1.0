@@ -517,28 +517,49 @@ h6 {
   }
 }
 
-/* Profile Card
-  ================================================== */
-  .profile-card {
-    margin: 10px;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: var(--surface-color);
-    text-align: center;
-  }
-  
-  .profile-card img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-  }
-  
-  .profile-card h3 {
-    margin-top: 10px;
-    color: var(--heading-color);
-  }
+/* Gaya untuk kartu di dropdown */
+.profile-dropdown .dropdown-menu {
+  border: none;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0;
+}
+
+.profile-dropdown .card {
+  border: none;
+}
+
+.profile-dropdown .card-img-top {
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile-dropdown .card-body {
+  padding: 1rem;
+}
+
+.profile-dropdown .btn {
+  font-size: 0.875rem;
+}
+
+.profile-dropdown .btn-primary {
+  background-color: #2a3f5f;
+  border-color: #2a3f5f;
+}
+
+.profile-dropdown .btn-primary:hover {
+  background-color: #1a2a40;
+  border-color: #1a2a40;
+}
+
+.profile-dropdown .btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.profile-dropdown .btn-danger:hover {
+  background-color: #c82333;
+  border-color: #c82333;
+}
 
 /*--------------------------------------------------------------
 # Global Footer

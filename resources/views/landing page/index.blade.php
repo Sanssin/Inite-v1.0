@@ -133,8 +133,6 @@
 
         <div class="row gy-4">
 
-          <div class="row gy-4">
-
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
             <p>Indonesian Nuclear Interactive Website (INITE) adalah platform edukasi interaktif yang dirancang untuk meningkatkan pemahaman masyarakat Indonesia tentang nuklir dan teknologi terkait. Kami berkomitmen untuk menyajikan informasi yang mudah dipahami dan akurat guna meningkatkan kesadaran publik mengenai berbagai aspek energi nuklir dan aplikasinya.</p>
             <ul>

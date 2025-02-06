@@ -133,21 +133,19 @@
 
         <div class="row gy-4">
 
+          <div class="row gy-4">
+
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-              magna aliqua.
-            </p>
+            <p>Indonesian Nuclear Interactive Website (INITE) adalah platform edukasi interaktif yang dirancang untuk meningkatkan pemahaman masyarakat Indonesia tentang nuklir dan teknologi terkait. Kami berkomitmen untuk menyajikan informasi yang mudah dipahami dan akurat guna meningkatkan kesadaran publik mengenai berbagai aspek energi nuklir dan aplikasinya.</p>
             <ul>
-              <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-              <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Menyediakan artikel edukatif tentang dasar ilmu nuklir, sejarah teknologi nuklir, reaktor, isotop, dan radiasi.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Menyajikan berita terkini seputar perkembangan teknologi nuklir.</span></li>
+              <li><i class="bi bi-check2-circle"></i> <span>Menawarkan simulasi interaktif yang memudahkan masyarakat memahami konsep nuklir dengan cara yang lebih visual dan intuitif.</span></li>
             </ul>
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-            <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+            <p>Dengan akses yang mudah dan sumber daya yang lengkap, INITE bertujuan untuk memberikan perspektif yang lebih jelas dan positif tentang nuklir. Kami ingin memberdayakan masyarakat dengan pengetahuan yang dapat membantu dalam memahami serta mendukung pemanfaatan teknologi nuklir secara aman dan bertanggung jawab.</p>
           </div>
 
         </div>

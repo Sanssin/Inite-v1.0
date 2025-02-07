@@ -26,6 +26,8 @@
 
   <!-- Main CSS File -->
   <link href="{{ asset('template/assets/css/main.css') }}" rel="stylesheet">
+  
+
 
   <!-- =======================================================
   * Template Name: Arsha
@@ -134,7 +136,8 @@
         <div class="row gy-4">
 
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-            <p>Indonesian Nuclear Interactive Website (INITE) adalah platform edukasi interaktif yang dirancang untuk meningkatkan pemahaman masyarakat Indonesia tentang nuklir dan teknologi terkait. Kami berkomitmen untuk menyajikan informasi yang mudah dipahami dan akurat guna meningkatkan kesadaran publik mengenai berbagai aspek energi nuklir dan aplikasinya.</p>
+            <p>Indonesian Nuclear Interactive Website (INITE) adalah platform edukasi interaktif yang dirancang untuk meningkatkan pemahaman masyarakat Indonesia tentang nuklir dan teknologi terkait.
+               Kami berkomitmen untuk menyajikan informasi yang mudah dipahami dan akurat guna meningkatkan kesadaran publik mengenai berbagai aspek energi nuklir dan aplikasinya.</p>
             <ul>
               <li><i class="bi bi-check2-circle"></i> <span>Menyediakan artikel edukatif tentang dasar ilmu nuklir, sejarah teknologi nuklir, reaktor, isotop, dan radiasi.</span></li>
               <li><i class="bi bi-check2-circle"></i> <span>Menyajikan berita terkini seputar perkembangan teknologi nuklir.</span></li>
@@ -143,8 +146,12 @@
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <p>Dengan akses yang mudah dan sumber daya yang lengkap, INITE bertujuan untuk memberikan perspektif yang lebih jelas dan positif tentang nuklir. Kami ingin memberdayakan masyarakat
-               dengan pengetahuan yang dapat membantu dalam memahami serta mendukung pemanfaatan teknologi nuklir secara aman dan bertanggung jawab.</p>
+            <p>Dengan akses yang mudah dan sumber daya yang lengkap, INITE bertujuan untuk memberikan pemahaman yang lebih jelas dan seimbang tentang nuklir. Kami menyajikan informasi kepada
+              masyarakat agar dapat mengenal berbagai aspek teknologi nuklir tanpa prasangka. Selain itu, kami berupaya menjelaskan manfaatnya di berbagai bidang, seperti energi, kesehatan,
+              dan industri, serta memberikan gambaran yang lebih objektif mengenai penggunaannya. Kami ingin memberdayakan masyarakat dengan pengetahuan yang dapat membantu mereka memahami
+              serta mendukung pemanfaatan teknologi nuklir secara aman dan bertanggung jawab. Dengan informasi yang tepat, diharapkan masyarakat dapat berpartisipasi dalam diskusi yang lebih
+              terbuka mengenai kebijakan dan perkembangan nuklir di Indonesia. Selain itu, INITE juga menekankan pentingnya keselamatan dan regulasi dalam penerapan teknologi nuklir agar dapat
+              dimanfaatkan dengan baik sesuai standar yang berlaku.</p>
           </div>
 
         </div>

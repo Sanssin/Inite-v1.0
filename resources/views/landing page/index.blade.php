@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>@yield('title','Inite : Indonesian Nuclear Interactive Website')</title>
+  <title>@yield('title','INITE : Indonesian Nuclear Interactive Website')</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -143,7 +143,8 @@
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <p>Dengan akses yang mudah dan sumber daya yang lengkap, INITE bertujuan untuk memberikan perspektif yang lebih jelas dan positif tentang nuklir. Kami ingin memberdayakan masyarakat dengan pengetahuan yang dapat membantu dalam memahami serta mendukung pemanfaatan teknologi nuklir secara aman dan bertanggung jawab.</p>
+            <p>Dengan akses yang mudah dan sumber daya yang lengkap, INITE bertujuan untuk memberikan perspektif yang lebih jelas dan positif tentang nuklir. Kami ingin memberdayakan masyarakat
+               dengan pengetahuan yang dapat membantu dalam memahami serta mendukung pemanfaatan teknologi nuklir secara aman dan bertanggung jawab.</p>
           </div>
 
         </div>

@@ -1033,18 +1033,26 @@ section,
 .about ul {
   list-style: none;
   padding: 0;
+  
 }
 
 .about ul li {
   padding-bottom: 5px;
   display: flex;
   align-items: center;
+ 
 }
 
 .about ul i {
   font-size: 20px;
   padding-right: 4px;
   color: var(--accent-color);
+  
+}
+
+.col-lg-6 p {
+  text-align: justify;
+  line-height: 1.6;
 }
 
 .about .read-more {

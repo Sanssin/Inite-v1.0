@@ -19,4 +19,4 @@ Route::get('/', function () {
     return view('landing page/index');
 });
 
-Route::get('/nuclearpediaDetail', [NuclearpediaController::class, 'showDetail']);
+Route::get('nuclearpediaDetail', [NuclearpediaController::class, 'showDetail']);

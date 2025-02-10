@@ -193,7 +193,7 @@
                 <div class="faq-content d-flex">
                   <img src="{{ asset('template/assets/img/plutoniummenyala.jpg') }}" class="img-fluid me-4" alt="Plutonium menyala" style="max-width: 150px; border-radius: 10px;">
                   <p>Plutonium-238 menghasilkan panas melalui peluruhan radioaktif, yang membuatnya tampak bercahaya dalam kondisi gelap. Sifat ini digunakan dalam baterai radioisotop untuk memberi daya pada wahana luar angkasa seperti Voyager dan Curiosity Rover.</p>
-                </div>
+                </div> 
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 

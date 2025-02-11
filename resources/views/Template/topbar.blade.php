@@ -1,7 +1,7 @@
-<header id="header" class="header d-flex align-items-center fixed-top">
+<header id="header" class="header d-flex align-items-center fixed-top" style="background-color: rgba(40, 58, 90, 0.9);">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
+      <a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#hero' : '#hero' }}" class="logo d-flex align-items-center me-auto">
         <!-- Uncomment the line below if you also wish to use an image logo -->
         <!-- <img src="assets/img/logo.png" alt=""> -->
         <h1 class="sitename">Inite</h1>
@@ -9,21 +9,12 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="{{ request()->is('portfolioDetail') ? url('/') . '#hero' : '#hero' }}" class="active">Home</a></li>
-          <li><a href="{{ request()->is('portfolioDetail') ? url('/') . '#about' : '#about' }}">About</a></li>
-          <li><a href="{{ request()->is('portfolioDetail') ? url('/') . '#portfolio' : '#portfolio' }}">Nuclearpedia</a></li>
-          <li><a href="{{ request()->is('portfolioDetail') ? url('/') . '#services' : '#services' }}">Services</a></li>
-          <li><a href="{{ request()->is('portfolioDetail') ? url('/') . '#team' : '#team' }}">Team</a></li>
-          <li><a href="{{ request()->is('portfolioDetail') ? url('/') . '#pricing' : '#pricing' }}">Pricing</a></li>
-          <li class="dropdown"><a href="#"><span>Simulasi</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li>
-          <li><a href="{{ request()->is('portfolioDetail') ? url('/') . '#contact' : '#contact' }}">Contact</a></li>
+          <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#hero' : '#hero' }}" class="active">Home</a></li>
+          <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#about' : '#about' }}">About</a></li>
+          <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#services' : '#services' }}">Services</a></li>
+          <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#nuclearpedia' : '#nuclearpedia' }}">Nuclearpedia</a></li>
+          <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#team' : '#team' }}">Team</a></li>
+          <li><a href="{{ request()->is('nuclearpediaDetail') ? url('/') . '#contact' : '#contact' }}">Contact</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -31,50 +22,24 @@
       <a class="btn-getstarted" href="#about">Get Started</a>
     
       <ul class="navbar-nav">
-        <li class="nav-item dropdown profile-dropdown">
-          <a class="nav-link dropdown-toggle d-flex align-items-center" href="#"
-            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <img src="{{ asset('template/assets/img/default.png') }}" alt="user" width="40" class="profile-pic rounded-circle object-fit-cover" />
-          </a>
-          <div
-            class="
-            dropdown-menu dropdown-menu-end
-            mailbox
-            dropdown-menu-animate-up
-          ">
-            <ul class="list-style-none">
-              <li class="p-30 pb-2">
-              <div class="rounded-top d-flex align-items-center">
-                <h3 class="card-title mb-0">Profil Kamu</h3>
-                  <div class="ms-auto">
-                    <a href="javascript:void(0)" class="link py-0">
-                    <i data-feather="x-circle"></i>
-                    </a>
-                  </div>
-              </div>
-              <div class="d-flex align-items-center mt-4 pt-3 pb-4 border-bottom">
-                <img src="{{ asset('template/assets/img/default.png') }}" alt="user" width="90" class="rounded-circle object-fit-cover" />
-                  <div class="ms-4">
-                    <h4 class="mb-0">
-                      Ihsan</h4>
-                    <span class="text-muted">Administrator</span>
-                    <p class="text-muted mb-0 mt-1">
-                    <i data-feather="mail" class="feather-sm me-1"></i>
-                    email
-                    </p>
-                  </div>
-              </div>
-              </li>
-              <li class="p-30 pt-0">
-                <div class="message-center message-body position-relative" style="height: 150px">
-                </div>
-                <div class="mt-0 d-flex justify-content-center">
-                  <a href="javascript:void(0)" class="btn btn-primary btn-sm">Lihat Profil</a>
-              </div>
-              </li>
-            </ul>
+      <li class="nav-item dropdown profile-dropdown">
+        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="{{ asset('template/assets/img/default.png') }}" alt="user" width="40" class="profile-pic rounded-circle object-fit-cover" />
+        </a>
+        <div class="dropdown-menu dropdown-menu-end p-2" aria-labelledby="navbarDropdown">
+          <div class="card" style="width: 18rem;">
+            <img src="{{ asset('template/assets/img/default.png') }}" class="card-img-top rounded-circle mx-auto mt-3" alt="Profile Picture" style="width: 80px; height: 80px;">
+            <div class="card-body text-center">
+              <h3 class="card-title">Guest</h3>
+              <p class="card-text text-muted">user@example.com</p>
+              <hr>
+              <a href="#" class="btn btn-primary btn-sm w-100 mb-2">Profile</a>
+              <a href="#" class="btn btn-secondary btn-sm w-100 mb-2">Settings</a>
+              <a href="#" class="btn btn-danger btn-sm w-100">Logout</a>
+            </div>
           </div>
-        </li>
-      </ul>
+        </div>
+      </li>
+    </ul>
     </div>
   </header>

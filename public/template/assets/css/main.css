@@ -1372,65 +1372,80 @@ section,
   }
 }
 
-.nuclearpedia .nuclearpedia-item {
-  position: relative;
+/*Kartu Nuclearpedia*/
+/* Pastikan kartu memiliki tinggi penuh dan kontennya tidak terpotong */
+.card {
+  height: 100%; /* Memastikan kartu mengikuti tinggi kontennya */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #ddd; /* Tambahan border untuk kejelasan */
+  border-radius: 8px; /* Membuat sudut kartu lebih halus */
   overflow: hidden;
 }
 
-.nuclearpedia .nuclearpedia-item .nuclearpedia-info {
-  opacity: 0;
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: -100%;
-  z-index: 3;
-  transition: all ease-in-out 0.5s;
-  background: color-mix(in srgb, var(--background-color), transparent 10%);
+/* Styling gambar agar tidak mengganggu tata letak */
+.card-img-top {
+  width: 100%; /* Pastikan gambar memenuhi kartu */
+  height: 200px; /* Sesuaikan tinggi gambar */
+  object-fit: cover; /* Memastikan gambar proporsional */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+/* Memastikan bagian body kartu tidak terpotong */
+.card-body {
+  flex: 1 1 auto; /* Biarkan body kartu mengisi ruang yang tersedia */
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distribusi konten agar tombol tetap di bawah */
 }
 
-.nuclearpedia .nuclearpedia-item .nuclearpedia-info h4 {
+/* Styling judul agar jelas */
+.card-title {
   font-size: 18px;
-  font-weight: 600;
-  padding-right: 50px;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.nuclearpedia .nuclearpedia-item .nuclearpedia-info p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+/* Deskripsi agar responsif dan tidak terpotong */
+.card-text {
+  flex-grow: 1;
   font-size: 14px;
-  margin-bottom: 0;
-  padding-right: 50px;
+  color: #555;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Batasi ke 3 baris */
+  line-clamp: 3; /* Batasi ke 3 baris */
+  -webkit-box-orient: vertical;
 }
 
-.nuclearpedia .nuclearpedia-item .nuclearpedia-info .preview-link,
-.nuclearpedia .nuclearpedia-item .nuclearpedia-info .details-link {
-  position: absolute;
-  right: 50px;
-  font-size: 24px;
-  top: calc(50% - 14px);
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  transition: 0.3s;
-  line-height: 0;
+/* Tombol di bagian bawah kartu */
+.card-body .btn {
+  margin-top: auto; /* Memastikan tombol selalu di bawah */
+  width: 100%; /* Biar tombol menyesuaikan lebar */
 }
 
-.nuclearpedia .nuclearpedia-item .nuclearpedia-info .preview-link:hover,
-.nuclearpedia .nuclearpedia-item .nuclearpedia-info .details-link:hover {
-  color: var(--accent-color);
+/* Pastikan column responsif */
+@media (max-width: 768px) {
+  .col-md-4 {
+      width: 100%; /* Agar satu kartu per baris di layar kecil */
+  }
 }
 
-.nuclearpedia .nuclearpedia-item .nuclearpedia-info .details-link {
-  right: 14px;
-  font-size: 28px;
+.isotope-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch; /* Memastikan elemen sejajar */
 }
 
-.nuclearpedia .nuclearpedia-item:hover .nuclearpedia-info {
-  opacity: 1;
-  bottom: 0;
+.isotope-container .col-md-4 {
+  display: flex;
+  flex-direction: column;
+  height: auto; /* Pastikan tinggi menyesuaikan */
 }
 
-.nuclearpedia-description {
-  text-align: justify;
-}
 
 /*--------------------------------------------------------------
 # Team Section
@@ -1667,14 +1682,29 @@ section,
 /*--------------------------------------------------------------
 # nuclearpedia Details Section
 --------------------------------------------------------------*/
-
-.nuclearpedia-details .nuclearpedia-details-slider img {
-  width: 100%;
+.nuclearpedia-title {
+  align-items: center;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 85%);
 }
 
+/* Atur ukuran gambar di dalam slider */
+.nuclearpedia-details .nuclearpedia-details-slider img {
+  width: 100%;
+  height: auto; /* Pastikan gambar tidak terdistorsi */
+  max-height: 400px; /* Batasi tinggi maksimum gambar */
+  object-fit: cover; /* Pastikan gambar menutupi area slide */
+  border-radius: 10px; /* Tambahkan border radius */
+}
+
+/* Atur pagination */
 .nuclearpedia-details .nuclearpedia-details-slider .swiper-pagination {
   margin-top: 20px;
   position: relative;
+  text-align: center; /* Pusatkan pagination */
 }
 
 .nuclearpedia-details .nuclearpedia-details-slider .swiper-pagination .swiper-pagination-bullet {
@@ -1682,10 +1712,86 @@ section,
   height: 12px;
   background-color: color-mix(in srgb, var(--default-color), transparent 85%);
   opacity: 1;
+  transition: background-color 0.3s ease; /* Animasi perubahan warna */
 }
 
 .nuclearpedia-details .nuclearpedia-details-slider .swiper-pagination .swiper-pagination-bullet-active {
   background-color: var(--accent-color);
+}
+
+/* Atur tombol navigasi (panah kanan-kiri) */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #000; /* Warna panah */
+  background-color: rgba(255, 255, 255, 0.8); /* Latar belakang */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0; /* Sembunyikan tombol secara default */
+  transition: opacity 0.3s ease, background-color 0.3s ease; /* Animasi hover */
+  z-index: 10; /* Pastikan tombol di atas gambar */
+}
+
+.swiper-button-next {
+  right: 10px; /* Posisi tombol next di kanan */
+}
+
+.swiper-button-prev {
+  left: 10px; /* Posisi tombol prev di kiri */
+}
+
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 20px; /* Ukuran ikon panah */
+}
+
+/* Tampilkan tombol saat hover pada container Swiper */
+.nuclearpedia-details-slider:hover .swiper-button-next,
+.nuclearpedia-details-slider:hover .swiper-button-prev {
+  opacity: 1; /* Tampilkan tombol */
+}
+
+/* Efek hover pada tombol */
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  background-color: rgba(255, 255, 255, 1); /* Latar belakang saat hover */
+}
+
+/* Sembunyikan tombol navigasi dan pagination jika hanya ada satu gambar */
+.swiper-button-next,
+.swiper-button-prev,
+.swiper-pagination {
+  display: none;
+}
+
+.swiper-container:not(.swiper-container-initialized) .swiper-slide {
+  display: block !important; /* Tampilkan satu gambar jika Swiper belum diinisialisasi */
+}
+
+.swiper-container.swiper-container-initialized .swiper-button-next,
+.swiper-container.swiper-container-initialized .swiper-button-prev,
+.swiper-container.swiper-container-initialized .swiper-pagination {
+  display: flex; /* Tampilkan tombol navigasi dan pagination jika Swiper diinisialisasi */
+}
+
+/* Responsiveness untuk tombol navigasi */
+@media (max-width: 768px) {
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 30px;
+    height: 30px;
+  }
+
+  .swiper-button-next::after,
+  .swiper-button-prev::after {
+    font-size: 16px;
+  }
 }
 
 .nuclearpedia-details .nuclearpedia-info {
@@ -1725,6 +1831,7 @@ section,
 .nuclearpedia-details .nuclearpedia-description p {
   padding: 0;
   color: color-mix(in srgb, var(--default-color), transparent 30%);
+  text-align: justify;
 }
 
 /*--------------------------------------------------------------

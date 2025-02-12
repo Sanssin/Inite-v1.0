@@ -292,7 +292,7 @@
     </section><!-- /Call To Action Section -->
 
     <!-- nuclearpedia Section -->
-    @include('Landing page.nuclearpedia')
+    @include('landing_page.nuclearpedia', ['nuclearpediaItems' => $nuclearpediaItems])
 
     <!-- Team Section -->
     <section id="team" class="team section">

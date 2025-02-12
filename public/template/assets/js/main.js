@@ -113,70 +113,67 @@
    * Init swiper sliders
    */
   function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+    document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
       let config = JSON.parse(
         swiperElement.querySelector(".swiper-config").innerHTML.trim()
       );
-
-      if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
-      } else {
-        new Swiper(swiperElement, config);
+  
+      const swiper = new Swiper(swiperElement, {
+        ...config,
+        on: {
+          init: function () {
+            // Nonaktifkan loop dan autoplay jika hanya ada satu gambar
+            if (this.slides.length <= 1) {
+              this.autoplay.stop();
+              this.loop = false;
+            }
+          },
+          slideChange: function () {
+            this.autoplay.start();
+          },
+          touchStart: function () {
+            this.autoplay.stop();
+          },
+          touchEnd: function () {
+            this.autoplay.start();
+          },
+          mouseenter: function () {
+            this.autoplay.stop();
+          },
+          mouseleave: function () {
+            this.autoplay.start();
+          },
+        },
+      });
+  
+      // Sembunyikan tombol navigasi dan pagination jika hanya ada satu gambar
+      if (swiper.slides.length <= 1) {
+        swiperElement.querySelector(".swiper-button-next").style.display = "none";
+        swiperElement.querySelector(".swiper-button-prev").style.display = "none";
+        swiperElement.querySelector(".swiper-pagination").style.display = "none";
       }
     });
   }
-
+  
   window.addEventListener("load", initSwiper);
-
-  /**
-   * Frequently Asked Questions Toggle
-   */
-  document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
-    faqItem.addEventListener('click', () => {
-      faqItem.parentNode.classList.toggle('faq-active');
-    });
-  });   
-
-  // document.querySelectorAll('.faq-item h3').forEach(item => {
-  //   item.addEventListener('click', () => {
-  //     let parent = item.parentNode;
-  //     parent.classList.toggle('faq-active');
-  //   });
-  // });
-
-  /**
-   * Animate the skills items on reveal
-   */
-  let skillsAnimation = document.querySelectorAll('.skills-animation');
-  skillsAnimation.forEach((item) => {
-    new Waypoint({
-      element: item,
-      offset: '80%',
-      handler: function(direction) {
-        let progress = item.querySelectorAll('.progress .progress-bar');
-        progress.forEach(el => {
-          el.style.width = el.getAttribute('aria-valuenow') + '%';
-        });
-      }
-    });
-  });
 
   /**
    * Init isotope layout and filters
    */
   document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
-    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
+    let layout = isotopeItem.getAttribute('data-layout') ?? 'fitRows';
     let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
     let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
 
     let initIsotope;
     imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
       initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
+        itemSelector: '.isotope-item,.col-md-4',
         layoutMode: layout,
         filter: filter,
         sortBy: sort
       });
+      initIsotope.layout();
     });
 
     isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {

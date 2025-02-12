@@ -4,99 +4,140 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use PhpOffice\PhpWord\PhpWord;
+use Illuminate\Support\Facades\Log;
 use PhpOffice\PhpWord\IOFactory;
-use Smalot\PdfParser\Parser; // Import library PDF parser
+use Smalot\PdfParser\Parser;
+use App\Models\Nuclearpedia;
+use App\Models\Item;
+use App\Models\Image;
 
 class NuclearpediaController extends Controller
 {
-    public function showDetail()
+    /**
+     * Menampilkan daftar semua item Nuclearpedia.
+     */
+    public function index()
     {
-        // Path ke file
-        $filePath = storage_path('app/public/nuclearpedia/tes1.docx');
+        // Ambil semua Item beserta gambar
+        $nuclearpediaItems = Item::with('image')->get();
 
-        // Periksa apakah file ada
-        if (!file_exists($filePath)) {
-            return view('Template.nuclearpediaDetail', ['content' => "File materi tidak ditemukan."]);
+        return view('landing_page.index', compact('nuclearpediaItems'));
+    }
+
+    /**
+     * Menampilkan isi materi berdasarkan slug.
+     */
+    public function showDetailBySlug($slug)
+    {
+        // Cari file Nuclearpedia berdasarkan slug item
+        $fileRecord = Nuclearpedia::whereHas('item', function ($query) use ($slug) {
+            $query->where('slug', $slug);
+        })->with('item')->first();
+
+        // Jika file tidak ditemukan, tampilkan pesan error
+        if (!$fileRecord) {
+            return view('Template.nuclearpediaDetail', [
+                'title' => 'Tidak Ditemukan',
+                'category' => '-',
+                'date' => '-',
+                'content' => 'File tidak ditemukan di database.',
+                'image' => []
+            ]);
         }
 
+        // Ambil semua gambar terkait hanya jika file ditemukan
+        $image = Image::where('item_id', $fileRecord->item->id)->get();
+        // dd($image); 
+
+
+        // Path ke file dalam storage
+        $filePath = storage_path('app/public/' . $fileRecord->file_path);
+        $filePath = str_replace('\\', '/', $filePath);
+        // dd($filePath, file_exists($filePath));
+        // dd(Storage::disk('public')->exists($fileRecord->file_path));
+
+
+        
+        // Periksa apakah file ada
+        if (!file_exists($filePath)) {
+            return view('Template.nuclearpediaDetail', [
+                'title' => $fileRecord->item->title ?? 'Tanpa Judul',
+                'category' => $fileRecord->item->category ?? '-',
+                'date' => $fileRecord->created_at->format('d M Y'),
+                'content' => 'File materi tidak ditemukan.',
+                'image' => $image,
+            ]);
+        }
+
+        // Tentukan ekstensi file
         $extension = pathinfo($filePath, PATHINFO_EXTENSION);
 
+        // Ekstrak konten dari file
         if ($extension === 'docx') {
-            // Load file .docx using PhpWord
-            $phpWord = IOFactory::load($filePath, 'Word2007');
+            $content = $this->extractDocxText($filePath);
+        } elseif ($extension === 'pdf') {
+            $content = $this->extractPdfText($filePath);
+        } else {
+            $content = 'Format file tidak didukung.';
+        }
 
-            // Ekstrak teks dari file DOCX per paragraf
+        return view('Template.nuclearpediaDetail', [
+            'title' => $fileRecord->item->title ?? 'Tanpa Judul',
+            'category' => $fileRecord->item->category ?? '-',
+            'date' => $fileRecord->created_at->format('d M Y'),
+            'content' => $content,
+            'image' => $image,
+        ]);
+    }
+
+    /**
+     * Ekstrak teks dari file DOCX.
+     */
+    private function extractDocxText($filePath)
+    {
+        try {
+            $phpWord = IOFactory::load($filePath);
             $content = '';
+
             foreach ($phpWord->getSections() as $section) {
                 foreach ($section->getElements() as $element) {
                     if ($element instanceof \PhpOffice\PhpWord\Element\TextRun) {
-                        $paragraphText = '';
-                        foreach ($element->getElements() as $childElement) {
-                            if ($childElement instanceof \PhpOffice\PhpWord\Element\Text) {
-                                $paragraphText .= $childElement->getText();
+                        foreach ($element->getElements() as $textElement) {
+                            if ($textElement instanceof \PhpOffice\PhpWord\Element\Text) {
+                                $content .= $textElement->getText() . "\n\n";
                             }
                         }
-                        $content .= $paragraphText . "\n\n"; // Tambahkan jeda satu baris antar paragraf
                     } elseif ($element instanceof \PhpOffice\PhpWord\Element\Text) {
-                        $content .= $element->getText() . "\n\n"; // Tambahkan jeda satu baris antar paragraf
-                    } elseif ($element instanceof \PhpOffice\PhpWord\Element\Title) {
-                        $content .= $element->getText() . "\n\n"; // Tambahkan jeda satu baris antar paragraf
-                    } elseif ($element instanceof \PhpOffice\PhpWord\Element\ListItem) {
-                        $content .= $element->getText() . "\n\n"; // Tambahkan jeda satu baris antar paragraf
-                    }
-                }
-            }
-        } elseif ($extension === 'pdf') {
-            // Load file .pdf using smalot/pdfparser
-            $parser = new Parser();
-            $pdf = $parser->parseFile($filePath); // Parse file PDF
-
-            // Gabungkan teks dari semua halaman
-            $fullText = '';
-            $pages = $pdf->getPages(); // Ambil semua halaman
-            foreach ($pages as $page) {
-                $fullText .= $page->getText() . "\n"; // Gabungkan teks dari setiap halaman
-            }
-
-            // Proses teks untuk memisahkan paragraf berdasarkan indentasi
-            $content = '';
-            $lines = explode("\n", $fullText); // Pisahkan teks per baris
-            $paragraph = '';
-            $isNewParagraph = false;
-
-            foreach ($lines as $line) {
-                $line = trim($line); // Hilangkan spasi di awal dan akhir baris
-
-                // Jika baris dimulai dengan indentasi (tab atau spasi), itu adalah awal paragraf baru
-                if (preg_match('/^\s+/', $line)) {
-                    // Jika sudah ada paragraf sebelumnya, simpan ke $content dengan jeda satu baris
-                    if (!empty($paragraph)) {
-                        $content .= $paragraph . "\n\n"; // Jeda satu baris antar paragraf
-                        $paragraph = ''; // Reset paragraf
-                    }
-                    $paragraph .= $line . ' '; // Mulai paragraf baru
-                    $isNewParagraph = true;
-                } else {
-                    // Jika baris tidak dimulai dengan indentasi, itu adalah lanjutan paragraf sebelumnya
-                    if ($isNewParagraph) {
-                        $paragraph .= $line . ' ';
-                    } else {
-                        // Jika bukan paragraf baru, tambahkan ke paragraf sebelumnya
-                        $paragraph .= $line . ' ';
+                        $content .= $element->getText() . "\n\n";
                     }
                 }
             }
 
-            // Simpan paragraf terakhir dengan jeda satu baris
-            if (!empty($paragraph)) {
-                $content .= $paragraph . "\n\n"; // Jeda satu baris antar paragraf
-            }
-        } else {
-            return view('Template.nuclearpediaDetail', ['content' => "Format file tidak didukung."]);
+            return $content;
+        } catch (\Exception $e) {
+            Log::error("Error membaca DOCX: " . $e->getMessage());
+            return "Gagal membaca file DOCX.";
         }
+    }
 
-        // Kirim data teks ke view
-        return view('Template.nuclearpediaDetail', ['content' => $content]);
+    /**
+     * Ekstrak teks dari file PDF.
+     */
+    private function extractPdfText($filePath)
+    {
+        try {
+            $parser = new Parser();
+            $pdf = $parser->parseFile($filePath);
+            $content = '';
+
+            foreach ($pdf->getPages() as $page) {
+                $content .= $page->getText() . "\n\n";
+            }
+
+            return $content;
+        } catch (\Exception $e) {
+            Log::error("Error membaca PDF: " . $e->getMessage());
+            return "Gagal membaca file PDF.";
+        }
     }
 }

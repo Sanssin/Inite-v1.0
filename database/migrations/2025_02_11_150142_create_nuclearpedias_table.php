@@ -11,23 +11,19 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('nuclearpedia', function (Blueprint $table) {
+        Schema::create('nuclearpedias', function (Blueprint $table) {
             $table->id();
-            // ...existing code...
-            $table->string('title');
+            $table->foreignId('item_id')->constrained()->onDelete('cascade');
             $table->string('file_path');
             $table->timestamps();
-            // ...existing code...
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down(): void
     {
-        Schema::dropIfExists('nuclearpedia');
+        Schema::dropIfExists('nuclearpedias');
     }
 };

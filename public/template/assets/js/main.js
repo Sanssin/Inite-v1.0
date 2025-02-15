@@ -114,10 +114,62 @@
    */
   function initSwiper() {
     document.querySelectorAll(".init-swiper").forEach(function (swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
+      let configElement = swiperElement.querySelector(".swiper-config");
   
+      // Validasi: Pastikan elemen .swiper-config ada dan memiliki konten
+      if (!configElement || !configElement.innerHTML.trim()) {
+        console.error("Swiper config is missing or empty for element:", swiperElement);
+        return; // Lewati elemen ini
+      }
+  
+      // Ambil konten JSON dan trim spasi
+      let configContent = configElement.innerHTML.trim();
+      console.log("Swiper config content:", configContent); // Debugging
+  
+      let config;
+      try {
+        // Parse JSON
+        config = JSON.parse(configContent);
+      } catch (error) {
+        console.error("Failed to parse Swiper config:", error);
+        return; // Lewati elemen ini
+      }
+  
+      // Pastikan slidesPerView default adalah 1
+      config = {
+        slidesPerView: 1, // **Pastikan hanya satu gambar per tampilan**
+        spaceBetween: 20,
+        loop: true, // **Aktifkan looping**
+        autoplay: {
+          delay: 5000,
+          disableOnInteraction: false
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          type: "bullets",
+          clickable: true
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev"
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 1, // **Tetap 1 gambar di layar kecil**
+            spaceBetween: 10
+          },
+          768: {
+            slidesPerView: 1, // **Tetap 1 gambar di layar menengah**
+            spaceBetween: 20
+          },
+          1024: {
+            slidesPerView: 1, // **Tetap 1 gambar di layar besar**
+            spaceBetween: 30
+          }
+        }
+      };
+  
+      // Inisialisasi Swiper
       const swiper = new Swiper(swiperElement, {
         ...config,
         on: {
@@ -148,14 +200,19 @@
   
       // Sembunyikan tombol navigasi dan pagination jika hanya ada satu gambar
       if (swiper.slides.length <= 1) {
-        swiperElement.querySelector(".swiper-button-next").style.display = "none";
-        swiperElement.querySelector(".swiper-button-prev").style.display = "none";
-        swiperElement.querySelector(".swiper-pagination").style.display = "none";
+        const nextButton = swiperElement.querySelector(".swiper-button-next");
+        const prevButton = swiperElement.querySelector(".swiper-button-prev");
+        const pagination = swiperElement.querySelector(".swiper-pagination");
+  
+        if (nextButton) nextButton.style.display = "none";
+        if (prevButton) prevButton.style.display = "none";
+        if (pagination) pagination.style.display = "none";
       }
     });
   }
   
   window.addEventListener("load", initSwiper);
+  
 
   /**
    * Init isotope layout and filters

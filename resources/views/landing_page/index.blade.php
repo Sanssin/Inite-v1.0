@@ -69,44 +69,39 @@
 
       <div class="container" data-aos="zoom-in">
 
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
+      <div class="swiper client-swiper">
+        <script type="application/json" class="swiper-config">
+          {
+            "loop": true,
+            "speed": 600,
+            "autoplay": {
+              "delay": 5000
+            },
+            "slidesPerView": "auto",
+            "breakpoints": {
+              "320": {
+                "slidesPerView": 2,
+                "spaceBetween": 40
               },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
+              "480": {
+                "slidesPerView": 3,
+                "spaceBetween": 60
               },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 40
-                },
-                "480": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 60
-                },
-                "640": {
-                  "slidesPerView": 4,
-                  "spaceBetween": 80
-                },
-                "992": {
-                  "slidesPerView": 5,
-                  "spaceBetween": 120
-                },
-                "1200": {
-                  "slidesPerView": 6,
-                  "spaceBetween": 120
-                }
+              "640": {
+                "slidesPerView": 4,
+                "spaceBetween": 80
+              },
+              "992": {
+                "slidesPerView": 5,
+                "spaceBetween": 120
+              },
+              "1200": {
+                "slidesPerView": 6,
+                "spaceBetween": 120
               }
             }
-          </script>
+          }
+        </script>
           <div class="swiper-wrapper align-items-center">
             <div class="swiper-slide"><img src="{{ asset('template/assets/img/clients/client-1.png') }}" class="img-fluid" alt=""></div>
             <div class="swiper-slide"><img src="{{ asset('template/assets/img/clients/client-2.png') }}" class="img-fluid" alt=""></div>
@@ -151,7 +146,7 @@
               dan industri, serta memberikan gambaran yang lebih objektif mengenai penggunaannya. Kami ingin memberdayakan masyarakat dengan pengetahuan yang dapat membantu mereka memahami
               serta mendukung pemanfaatan teknologi nuklir secara aman dan bertanggung jawab. Dengan informasi yang tepat, diharapkan masyarakat dapat berpartisipasi dalam diskusi yang lebih
               terbuka mengenai kebijakan dan perkembangan nuklir di Indonesia. Selain itu, INITE juga menekankan pentingnya keselamatan dan regulasi dalam penerapan teknologi nuklir agar dapat
-              dimanfaatkan dengan baik sesuai standar yang berlaku.</p>
+              dimanfaatkan dengan baik sesuai standar yang berlaku.</p>
           </div>
 
         </div>

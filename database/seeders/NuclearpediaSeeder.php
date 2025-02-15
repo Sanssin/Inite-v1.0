@@ -29,7 +29,8 @@ class NuclearpediaSeeder extends Seeder
         $docFiles = Storage::disk('public')->files('nuclearpedia');
 
         foreach ($docFiles as $file) {
-            if (pathinfo($file, PATHINFO_EXTENSION) === 'docx') {
+            $allowedExtensions = [ 'docx','pdf'];
+            if (in_array(pathinfo($file, PATHINFO_EXTENSION), $allowedExtensions)) {
                 DB::table('nuclearpedias')->insert([
                     'item_id'    => $item->id,  // Menautkan ke item yang sudah ada
                     'file_path'  => $file,

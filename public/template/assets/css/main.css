@@ -1085,6 +1085,24 @@ section,
 .about .read-more:hover i {
   transform: translate(5px, 0);
 }
+/* client swiper*/
+.client-swiper {
+  padding: 20px 0;
+}
+
+.client-swiper .swiper-wrapper {
+  align-items: center;
+  display: flex;
+}
+
+.client-swiper .swiper-slide img {
+  max-width: 100px;
+  height: auto;
+}
+
+.client-swiper .swiper-pagination {
+  display: none; /* Hapus pagination untuk logo klien */
+}
 
 /*--------------------------------------------------------------
 # Why Us Section
@@ -1719,80 +1737,70 @@ section,
   background-color: var(--accent-color);
 }
 
-/* Atur tombol navigasi (panah kanan-kiri) */
+/* Atur tombol navigasi Swiper */
 .swiper-button-next,
 .swiper-button-prev {
-  color: #000; /* Warna panah */
-  background-color: rgba(255, 255, 255, 0.8); /* Latar belakang */
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  width: 45px; /* Ukuran lebih kecil */
+  height: 45px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  cursor: pointer;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
   opacity: 0; /* Sembunyikan tombol secara default */
-  transition: opacity 0.3s ease, background-color 0.3s ease; /* Animasi hover */
-  z-index: 10; /* Pastikan tombol di atas gambar */
 }
 
+/* Ukuran ikon panah lebih kecil */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 16px; /* Ukuran lebih kecil */
+  font-weight: bold;
+}
+
+/* Posisi tombol navigasi */
 .swiper-button-next {
-  right: 10px; /* Posisi tombol next di kanan */
+  right: 15px;
 }
 
 .swiper-button-prev {
-  left: 10px; /* Posisi tombol prev di kiri */
+  left: 15px;
 }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  font-size: 20px; /* Ukuran ikon panah */
-}
-
-/* Tampilkan tombol saat hover pada container Swiper */
-.nuclearpedia-details-slider:hover .swiper-button-next,
-.nuclearpedia-details-slider:hover .swiper-button-prev {
-  opacity: 1; /* Tampilkan tombol */
+/* Tampilkan tombol navigasi saat hover pada slider */
+.init-swiper:hover .swiper-button-next,
+.init-swiper:hover .swiper-button-prev {
+  opacity: 1;
 }
 
 /* Efek hover pada tombol */
 .swiper-button-next:hover,
 .swiper-button-prev:hover {
-  background-color: rgba(255, 255, 255, 1); /* Latar belakang saat hover */
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
 }
 
-/* Sembunyikan tombol navigasi dan pagination jika hanya ada satu gambar */
-.swiper-button-next,
-.swiper-button-prev,
-.swiper-pagination {
-  display: none;
-}
-
-.swiper-container:not(.swiper-container-initialized) .swiper-slide {
-  display: block !important; /* Tampilkan satu gambar jika Swiper belum diinisialisasi */
-}
-
-.swiper-container.swiper-container-initialized .swiper-button-next,
-.swiper-container.swiper-container-initialized .swiper-button-prev,
-.swiper-container.swiper-container-initialized .swiper-pagination {
-  display: flex; /* Tampilkan tombol navigasi dan pagination jika Swiper diinisialisasi */
-}
-
-/* Responsiveness untuk tombol navigasi */
+/* Responsiveness: Sesuaikan ukuran tombol di layar lebih kecil */
 @media (max-width: 768px) {
   .swiper-button-next,
   .swiper-button-prev {
-    width: 30px;
-    height: 30px;
+    width: 35px; /* Ukuran tombol lebih kecil */
+    height: 35px;
   }
 
   .swiper-button-next::after,
   .swiper-button-prev::after {
-    font-size: 16px;
+    font-size: 14px; /* Ukuran ikon lebih kecil di layar kecil */
   }
 }
+
+
 
 .nuclearpedia-details .nuclearpedia-info {
   background-color: var(--surface-color);

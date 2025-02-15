@@ -95,49 +95,105 @@ class NuclearpediaController extends Controller
      */
     private function extractDocxText($filePath)
     {
-        try {
-            $phpWord = IOFactory::load($filePath);
-            $content = '';
+    try {
+        $phpWord = IOFactory::load($filePath);
+        $paragraphs = [];
 
-            foreach ($phpWord->getSections() as $section) {
-                foreach ($section->getElements() as $element) {
-                    if ($element instanceof \PhpOffice\PhpWord\Element\TextRun) {
-                        foreach ($element->getElements() as $textElement) {
-                            if ($textElement instanceof \PhpOffice\PhpWord\Element\Text) {
-                                $content .= $textElement->getText() . "\n\n";
-                            }
+        foreach ($phpWord->getSections() as $section) {
+            foreach ($section->getElements() as $element) {
+                $textContent = '';
+
+                // Jika elemen adalah TextRun (paragraf dengan beberapa elemen teks)
+                if ($element instanceof \PhpOffice\PhpWord\Element\TextRun) {
+                    foreach ($element->getElements() as $textElement) {
+                        if ($textElement instanceof \PhpOffice\PhpWord\Element\Text) {
+                            $textContent .= $textElement->getText();
                         }
-                    } elseif ($element instanceof \PhpOffice\PhpWord\Element\Text) {
-                        $content .= $element->getText() . "\n\n";
                     }
+                } elseif ($element instanceof \PhpOffice\PhpWord\Element\Text) {
+                    // Jika elemen langsung berupa teks
+                    $textContent = $element->getText();
+                }
+
+                // Jika ada konten, tambahkan sebagai paragraf
+                if (!empty($textContent)) {
+                    $paragraphs[] = trim($textContent);
                 }
             }
-
-            return $content;
-        } catch (\Exception $e) {
-            Log::error("Error membaca DOCX: " . $e->getMessage());
-            return "Gagal membaca file DOCX.";
         }
+
+        // Gabungkan semua paragraf dengan enter sebagai pemisah
+        return implode("\n\n", $paragraphs);
+    } catch (\Exception $e) {
+        Log::error("Error membaca DOCX: " . $e->getMessage());
+        return "Gagal membaca file DOCX.";
+    }
     }
 
     /**
      * Ekstrak teks dari file PDF.
      */
     private function extractPdfText($filePath)
-    {
-        try {
-            $parser = new Parser();
-            $pdf = $parser->parseFile($filePath);
-            $content = '';
+{
+    try {
+        $parser = new Parser();
+        $pdf = $parser->parseFile($filePath);
+        $text = $pdf->getText();
 
-            foreach ($pdf->getPages() as $page) {
-                $content .= $page->getText() . "\n\n";
+        $lines = explode("\n", trim($text));
+        $paragraphs = [];
+        $currentParagraph = '';
+        $prevLine = '';
+        $shortLineThreshold = 0.6; // Jika panjang baris < 60% dari sebelumnya, dianggap pendek
+        $buffer = ''; // Buffer untuk menangani baris pendek
+
+        foreach ($lines as $line) {
+            $line = trim($line);
+
+            if (empty($line)) {
+                continue; // Abaikan baris kosong sepenuhnya
             }
 
-            return $content;
-        } catch (\Exception $e) {
-            Log::error("Error membaca PDF: " . $e->getMessage());
-            return "Gagal membaca file PDF.";
+            // Cek apakah panjang baris jauh lebih kecil dibanding sebelumnya
+            if (!empty($prevLine) && strlen($line) < $shortLineThreshold * strlen($prevLine)) {
+                // Simpan sementara dalam buffer (jangan langsung buat paragraf baru)
+                $buffer .= (empty($buffer) ? '' : ' ') . $line;
+            } else {
+                // Jika buffer sudah ada, gabungkan dengan paragraf sebelumnya
+                if (!empty($buffer)) {
+                    $currentParagraph .= ' ' . trim($buffer);
+                    $buffer = ''; // Reset buffer
+                }
+
+                // Jika paragraf baru
+                if (!empty($prevLine) && strlen($prevLine) < $shortLineThreshold * strlen($line)) {
+                    if (!empty($currentParagraph)) {
+                        $paragraphs[] = trim($currentParagraph);
+                        $currentParagraph = '';
+                    }
+                }
+
+                $currentParagraph .= (empty($currentParagraph) ? '' : ' ') . $line;
+            }
+
+            $prevLine = $line;
         }
+
+        // Tambahkan buffer terakhir ke paragraf sebelumnya
+        if (!empty($buffer)) {
+            $currentParagraph .= ' ' . trim($buffer);
+        }
+
+        // Simpan paragraf terakhir
+        if (!empty($currentParagraph)) {
+            $paragraphs[] = trim($currentParagraph);
+        }
+
+        return implode("\n\n", $paragraphs);
+    } catch (\Exception $e) {
+        Log::error("Error membaca PDF: " . $e->getMessage());
+        return "Gagal membaca file PDF.";
     }
+}
+
 }

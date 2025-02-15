@@ -48,7 +48,7 @@
         <nav class="breadcrumbs">
           <ol>
             <li><a href="{{ url('/') . '#hero' }}">Home</a></li>
-            <li class="current">Nuclearpedia Details</li>
+            <li class="current">{{ $title }}</li>
           </ol>
         </nav>
         <h1>Nuclearpedia Details</h1>
@@ -76,7 +76,7 @@
                   "loop": true,
                   "speed": 600,
                   "autoplay": {
-                    "delay": 5000,
+                    "delay": 500,
                     "disableOnInteraction": false
                   },
                   "slidesPerView": 1,
@@ -92,20 +92,20 @@
                   },
                   "breakpoints": {
                     "640": {
-                      "slidesPerView": 1, // Pada layar kecil, tampilkan 1 slide
+                      "slidesPerView": 1,
                       "spaceBetween": 10
                     },
                     "768": {
-                      "slidesPerView": 2, // Pada layar medium, tampilkan 2 slide
+                      "slidesPerView": 2,
                       "spaceBetween": 20
                     },
                     "1024": {
-                      "slidesPerView": 3, // Pada layar besar, tampilkan 3 slide
+                      "slidesPerView": 3,
                       "spaceBetween": 30
                     }
                   }
                 }
-              </script>
+            </script>
 
               <div class="swiper-wrapper align-items-center">
               <!-- <pre>{{ print_r($image->toArray(), true) }}</pre> -->

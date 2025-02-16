@@ -219,8 +219,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Services</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>Perangkat Simulasi</h2>
+        <p>Berikut adalah perangkat simulasi bertema kenukliran yang dapat diujicobakan</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -230,32 +230,32 @@
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-activity icon"></i></div>
-              <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <h4><a href="" class="stretched-link">Simulasi Paparan Radiasi</a></h4>
+              <p>Pengaruh sumber radiasi ke objek ditinjau dari beberapa faktor</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
-              <h4><a href="" class="stretched-link">Sed ut perspici</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              <h4><a href="" class="stretched-link">Simulasi Prosedur Memasuki Ruangan  </a></h4>
+              <p>Simulasi sesuai dengan S.O.P untuk memasuki ruangan beradiasi</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
-              <h4><a href="" class="stretched-link">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              <h4><a href="" class="stretched-link">Simulasi Paparan Dosis Radiasi</a></h4>
+              <p>Simulasi untuk mengetahui batasan paparan dosis radiasi pada manusia</p>
             </div>
           </div><!-- End Service Item -->
 
           <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
             <div class="service-item position-relative">
               <div class="icon"><i class="bi bi-broadcast icon"></i></div>
-              <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+              <h4><a href="" class="stretched-link">Simulasi Reaksi Fisi dan Fusi</a></h4>
+              <p>Simulasi untuk mengetahui perbedaan reaksi fusi dan fisi</p>
             </div>
           </div><!-- End Service Item -->
 
@@ -381,8 +381,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>Kontak Kami</h2>
+        <p>Berikut kami cantumkan kontak resmi dari Kampus Politeknik Teknologi Nuklir Indonesia</p>
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -395,24 +395,25 @@
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                 <div>
-                  <h3>Address</h3>
-                  <p>A108 Adam Street, New York, NY 535022</p>
+                  <h3>Alamat</h3>
+                  <p>Jl. Babarsari Kotak POB 6101/YKKB, Ngentak, Caturtunggal, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55281</p>
                 </div>
               </div><!-- End Info Item -->
 
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
                 <i class="bi bi-telephone flex-shrink-0"></i>
                 <div>
-                  <h3>Call Us</h3>
-                  <p>+1 5589 55488 55</p>
+                  <h3>Hubungi Kami</h3>
+                  <p>Telpon : (0274) 484085</p>
+                  <p>Whatsapp : +62 811-2520-9777
                 </div>
               </div><!-- End Info Item -->
 
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
-                  <h3>Email Us</h3>
-                  <p>info@example.com</p>
+                  <h3>Email</h3>
+                  <p>polteknuklir@brin.go.id</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -425,22 +426,22 @@
               <div class="row gy-4">
 
                 <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
+                  <label for="name-field" class="pb-2">Nama</label>
                   <input type="text" name="name" id="name-field" class="form-control" required="">
                 </div>
 
                 <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
+                  <label for="email-field" class="pb-2">Email</label>
                   <input type="email" class="form-control" name="email" id="email-field" required="">
                 </div>
 
                 <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
+                  <label for="subject-field" class="pb-2">Subjek</label>
                   <input type="text" class="form-control" name="subject" id="subject-field" required="">
                 </div>
 
                 <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
+                  <label for="message-field" class="pb-2">Pesan</label>
                   <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
                 </div>
 
@@ -449,7 +450,7 @@
                   <div class="error-message"></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
 
-                  <button type="submit">Send Message</button>
+                  <button type="submit">Kirim Pesan</button>
                 </div>
 
               </div>

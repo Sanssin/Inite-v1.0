@@ -11,6 +11,7 @@
       <ul>
           <li><a href="{{ request()->route('slug') ? url('/') . '#hero' : '#hero' }}" class="active">Home</a></li>
           <li><a href="{{ request()->route('slug') ? url('/') . '#about' : '#about' }}">About</a></li>
+          <li><a href="{{ request()->route('slug') ? url('/') . '#upload' : '#upload' }}"></a></li>
           <li><a href="{{ request()->route('slug') ? url('/') . '#services' : '#services' }}">Services</a></li>
           <li><a href="{{ request()->route('slug') ? url('/') . '#nuclearpedia' : '#nuclearpedia' }}">Nuclearpedia</a></li>
           <li><a href="{{ request()->route('slug') ? url('/') . '#team' : '#team' }}">Team</a></li>

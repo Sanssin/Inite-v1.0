@@ -1085,24 +1085,6 @@ section,
 .about .read-more:hover i {
   transform: translate(5px, 0);
 }
-/* client swiper*/
-.client-swiper {
-  padding: 20px 0;
-}
-
-.client-swiper .swiper-wrapper {
-  align-items: center;
-  display: flex;
-}
-
-.client-swiper .swiper-slide img {
-  max-width: 100px;
-  height: auto;
-}
-
-.client-swiper .swiper-pagination {
-  display: none; /* Hapus pagination untuk logo klien */
-}
 
 /*--------------------------------------------------------------
 # Why Us Section

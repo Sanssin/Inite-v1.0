@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Item;
 
-class NuclearpediaSeeder extends Seeder
+class NuclearpediaImagesSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -25,15 +25,14 @@ class NuclearpediaSeeder extends Seeder
             ]);
         }
 
-        // Ambil file dari folder 'nuclearpedia' untuk dokumen
-        $docFiles = Storage::disk('public')->files('nuclearpedia');
+        // Ambil file dari folder 'images' untuk gambar
+        $imageFiles = Storage::disk('public')->files('images');
 
-        foreach ($docFiles as $file) {
-            $allowedExtensions = [ 'docx','pdf'];
-            if (in_array(pathinfo($file, PATHINFO_EXTENSION), $allowedExtensions)) {
-                DB::table('nuclearpedias')->insert([
+        foreach ($imageFiles as $file) {
+            if (in_array(pathinfo($file, PATHINFO_EXTENSION), ['jpg', 'jpeg', 'png', 'gif'])) {
+                DB::table('nuclearpedia_images')->insert([
                     'item_id'    => $item->id,  // Menautkan ke item yang sudah ada
-                    'file_path'  => $file,
+                    'image_path' => $file,
                     'created_at' => now(),
                     'updated_at' => now(),
                 ]);

@@ -15,8 +15,10 @@ class DatabaseSeeder extends Seeder
         $this->call([
             AdminUserSeeder::class,
             UserSeeder::class,
-            NuclearpediaSeeder::class,
             PermissionTableSeeder::class,
+            // ItemSeeder::class,
+            NuclearpediaSeeder::class,
+            NuclearpediaImagesSeeder::class,
         ]);
         
         // \App\Models\User::factory(10)->create();

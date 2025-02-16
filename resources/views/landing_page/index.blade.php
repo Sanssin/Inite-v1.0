@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>@yield('title','Inite : Indonesian Nuclear Interactive Website')</title>
+  <title>@yield('title','INITE : Indonesian Nuclear Interactive Website')</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -69,44 +69,39 @@
 
       <div class="container" data-aos="zoom-in">
 
-        <div class="swiper init-swiper">
-          <script type="application/json" class="swiper-config">
-            {
-              "loop": true,
-              "speed": 600,
-              "autoplay": {
-                "delay": 5000
+      <div class="swiper client-swiper">
+        <script type="application/json" class="swiper-config">
+          {
+            "loop": true,
+            "speed": 600,
+            "autoplay": {
+              "delay": 5000
+            },
+            "slidesPerView": "auto",
+            "breakpoints": {
+              "320": {
+                "slidesPerView": 2,
+                "spaceBetween": 40
               },
-              "slidesPerView": "auto",
-              "pagination": {
-                "el": ".swiper-pagination",
-                "type": "bullets",
-                "clickable": true
+              "480": {
+                "slidesPerView": 3,
+                "spaceBetween": 60
               },
-              "breakpoints": {
-                "320": {
-                  "slidesPerView": 2,
-                  "spaceBetween": 40
-                },
-                "480": {
-                  "slidesPerView": 3,
-                  "spaceBetween": 60
-                },
-                "640": {
-                  "slidesPerView": 4,
-                  "spaceBetween": 80
-                },
-                "992": {
-                  "slidesPerView": 5,
-                  "spaceBetween": 120
-                },
-                "1200": {
-                  "slidesPerView": 6,
-                  "spaceBetween": 120
-                }
+              "640": {
+                "slidesPerView": 4,
+                "spaceBetween": 80
+              },
+              "992": {
+                "slidesPerView": 5,
+                "spaceBetween": 120
+              },
+              "1200": {
+                "slidesPerView": 6,
+                "spaceBetween": 120
               }
             }
-          </script>
+          }
+        </script>
           <div class="swiper-wrapper align-items-center">
             <div class="swiper-slide"><img src="{{ asset('template/assets/img/clients/client-1.png') }}" class="img-fluid" alt=""></div>
             <div class="swiper-slide"><img src="{{ asset('template/assets/img/clients/client-2.png') }}" class="img-fluid" alt=""></div>
@@ -136,7 +131,8 @@
         <div class="row gy-4">
 
           <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
-            <p>Indonesian Nuclear Interactive Website (INITE) adalah platform edukasi interaktif yang dirancang untuk meningkatkan pemahaman masyarakat Indonesia tentang nuklir dan teknologi terkait. Kami berkomitmen untuk menyajikan informasi yang mudah dipahami dan akurat guna meningkatkan kesadaran publik mengenai berbagai aspek energi nuklir dan aplikasinya.</p>
+            <p>Indonesian Nuclear Interactive Website (INITE) adalah platform edukasi interaktif yang dirancang untuk meningkatkan pemahaman masyarakat Indonesia tentang nuklir dan teknologi terkait.
+               Kami berkomitmen untuk menyajikan informasi yang mudah dipahami dan akurat guna meningkatkan kesadaran publik mengenai berbagai aspek energi nuklir dan aplikasinya.</p>
             <ul>
               <li><i class="bi bi-check2-circle"></i> <span>Menyediakan artikel edukatif tentang dasar ilmu nuklir, sejarah teknologi nuklir, reaktor, isotop, dan radiasi.</span></li>
               <li><i class="bi bi-check2-circle"></i> <span>Menyajikan berita terkini seputar perkembangan teknologi nuklir.</span></li>
@@ -145,7 +141,12 @@
           </div>
 
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <p>Dengan akses yang mudah dan sumber daya yang lengkap, INITE bertujuan untuk memberikan pemahaman yang lebih jelas dan seimbang tentang nuklir. Kami menyajikan informasi kepada masyarakat agar dapat mengenal berbagai aspek teknologi nuklir tanpa prasangka. Selain itu, kami berupaya menjelaskan manfaatnya di berbagai bidang, seperti energi, kesehatan, dan industri, serta memberikan gambaran yang lebih objektif mengenai penggunaannya. Kami ingin memberdayakan masyarakat dengan pengetahuan yang dapat membantu mereka memahami serta mendukung pemanfaatan teknologi nuklir secara aman dan bertanggung jawab. Dengan informasi yang tepat, diharapkan masyarakat dapat berpartisipasi dalam diskusi yang lebih terbuka mengenai kebijakan dan perkembangan nuklir di Indonesia. Selain itu, INITE juga menekankan pentingnya keselamatan dan regulasi dalam penerapan teknologi nuklir agar dapat dimanfaatkan dengan baik sesuai standar yang berlaku.</p>
+            <p>Dengan akses yang mudah dan sumber daya yang lengkap, INITE bertujuan untuk memberikan pemahaman yang lebih jelas dan seimbang tentang nuklir. Kami menyajikan informasi kepada
+              masyarakat agar dapat mengenal berbagai aspek teknologi nuklir tanpa prasangka. Selain itu, kami berupaya menjelaskan manfaatnya di berbagai bidang, seperti energi, kesehatan,
+              dan industri, serta memberikan gambaran yang lebih objektif mengenai penggunaannya. Kami ingin memberdayakan masyarakat dengan pengetahuan yang dapat membantu mereka memahami
+              serta mendukung pemanfaatan teknologi nuklir secara aman dan bertanggung jawab. Dengan informasi yang tepat, diharapkan masyarakat dapat berpartisipasi dalam diskusi yang lebih
+              terbuka mengenai kebijakan dan perkembangan nuklir di Indonesia. Selain itu, INITE juga menekankan pentingnya keselamatan dan regulasi dalam penerapan teknologi nuklir agar dapat
+              dimanfaatkan dengan baik sesuai standar yang berlaku.</p>
           </div>
 
         </div>
@@ -187,7 +188,7 @@
                 <div class="faq-content d-flex">
                   <img src="{{ asset('template/assets/img/plutoniummenyala.jpg') }}" class="img-fluid me-4" alt="Plutonium menyala" style="max-width: 150px; border-radius: 10px;">
                   <p>Plutonium-238 menghasilkan panas melalui peluruhan radioaktif, yang membuatnya tampak bercahaya dalam kondisi gelap. Sifat ini digunakan dalam baterai radioisotop untuk memberi daya pada wahana luar angkasa seperti Voyager dan Curiosity Rover.</p>
-                </div>
+                </div> 
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
@@ -286,7 +287,7 @@
     </section><!-- /Call To Action Section -->
 
     <!-- nuclearpedia Section -->
-    @include('Landing page.nuclearpedia')
+    @include('landing_page.nuclearpedia', ['nuclearpediaItems' => $nuclearpediaItems])
 
     <!-- Team Section -->
     <section id="team" class="team section">

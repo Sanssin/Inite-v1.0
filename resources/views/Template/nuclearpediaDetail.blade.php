@@ -48,7 +48,7 @@
         <nav class="breadcrumbs">
           <ol>
             <li><a href="{{ url('/') . '#hero' }}">Home</a></li>
-            <li class="current">Nuclearpedia Details</li>
+            <li class="current">{{ $title }}</li>
           </ol>
         </nav>
         <h1>Nuclearpedia Details</h1>
@@ -62,66 +62,83 @@
 
         <div class="row gy-4">
 
+        <div class="nuclearpedia-title" data-aos="fade-up" data-aos-delay="100">
+          <h1>
+            <strong>{{ $title }}</strong>
+          </h1>
+        </div>
+
           <div class="col-lg-8">
             <div class="nuclearpedia-details-slider swiper init-swiper">
 
-              <script type="application/json" class="swiper-config">
+            <script type="application/json" class="swiper-config">
                 {
                   "loop": true,
                   "speed": 600,
                   "autoplay": {
-                    "delay": 5000
+                    "delay": 500,
+                    "disableOnInteraction": false
                   },
-                  "slidesPerView": "auto",
+                  "slidesPerView": 1,
+                  "spaceBetween": 20,
                   "pagination": {
                     "el": ".swiper-pagination",
                     "type": "bullets",
                     "clickable": true
+                  },
+                  "navigation": {
+                    "nextEl": ".swiper-button-next",
+                    "prevEl": ".swiper-button-prev"
+                  },
+                  "breakpoints": {
+                    "640": {
+                      "slidesPerView": 1,
+                      "spaceBetween": 10
+                    },
+                    "768": {
+                      "slidesPerView": 2,
+                      "spaceBetween": 20
+                    },
+                    "1024": {
+                      "slidesPerView": 3,
+                      "spaceBetween": 30
+                    }
                   }
                 }
-              </script>
+            </script>
 
               <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="{{ asset('template/assets/img/nuclearpedia/app-1.jpg') }}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{{ asset('template/assets/img/nuclearpedia/product-1.jpg') }}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{{ asset('template/assets/img/nuclearpedia/branding-1.jpg') }}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{{ asset('template/assets/img/nuclearpedia/books-1.jpg') }}" alt="">
-                </div>
-
+              <!-- <pre>{{ print_r($image->toArray(), true) }}</pre> -->
+              @foreach ($image as $img)
+              <div class="swiper-slide">
+                <img src="{{ asset('storage/' . $img->image_path) }}" alt="Gambar Nuclearpedia">
               </div>
+              @endforeach              
+              </div>
+
               <div class="swiper-pagination"></div>
+              <!-- Navigation Buttons -->
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
             </div>
           </div>
 
           <div class="col-lg-4">
             <div class="nuclearpedia-info" data-aos="fade-up" data-aos-delay="200">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Category</strong>: Web design</li>
-                <li><strong>Client</strong>: ASU Company</li>
-                <li><strong>Project date</strong>: 01 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
-              </ul>
+              <h3>Informasi Materi</h3>
+                <ul>
+                  <li><strong>Judul</strong>: {{ $title }}</li>
+                  <li><strong>Kategori</strong>: {{ $category }}</li>
+                  <li><strong>Publikasi</strong>: {{ $date }}</li>
+                </ul>
             </div>
-            <div class="nuclearpedia-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>Exercitationem repudiandae officiis neque suscipit</h2>
-              <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
-            </div>
+            
           </div>
-
+          <div class="nuclearpedia-description" data-aos="fade-up" data-aos-delay="300">
+              <p style="white-space: pre-line;">
+                {{ $content }}
+              </p>
+          </div>
         </div>
 
       </div>
@@ -147,6 +164,7 @@
   <script src="{{ asset('template/assets/vendor/waypoints/noframework.waypoints.js') }}"></script>
   <script src="{{ asset('template/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
   <script src="{{ asset('template/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+  <script src="{{ asset('template/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
 
   <!-- Main JS File -->
   <script src="{{ asset('template/assets/js/main.js') }}"></script>

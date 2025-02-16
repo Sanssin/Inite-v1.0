@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\NuclearpediaController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PortfolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +14,8 @@ use App\Http\Controllers\PortfolioController;
 |
 */
 
-Route::get('/', function () {
-    return view('landing page/index');
-});
+Route::get('/', [NuclearpediaController::class, 'index'])->name('landing_page.index');
 
-Route::get('/nuclearpediaDetail', [NuclearpediaController::class, 'showDetail']);
+Route::get('/nuclearpedia', [NuclearpediaController::class, 'index'])->name('nuclearpedia.index');
+
+Route::get('/nuclearpedia/{slug}', [NuclearpediaController::class, 'showDetailBySlug'])->name('nuclearpedia.detail');

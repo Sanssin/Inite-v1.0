@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>@yield('title','Nuclearpedia Details')</title>
+  <title>Upload Materi - Arsha Bootstrap Template</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
@@ -15,7 +15,7 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="{{ asset('template/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -26,19 +26,11 @@
 
   <!-- Main CSS File -->
   <link href="{{ asset('template/assets/css/main.css') }}" rel="stylesheet">
-
-  <!-- =======================================================
-  * Template Name: Arsha
-  * Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
-  * Updated: Aug 07 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 </head>
 
-<body class="nuclearpedia-details-page">
+<body class="upload-page" >
 
-@include('Template.topbar')
+  @include('Template.topbar')
 
   <main class="main">
 
@@ -47,86 +39,41 @@
       <div class="container">
         <nav class="breadcrumbs">
           <ol>
-            <li><a href="{{ url('/') . '#hero' }}">Home</a></li>
-            <li class="current">Nuclearpedia Details</li>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Upload Materi</li>
           </ol>
         </nav>
-        <h1>Nuclearpedia Details</h1>
+        <h1>Upload Materi</h1>
       </div>
     </div><!-- End Page Title -->
 
-    <!-- nuclearpedia Details Section -->
-    <section id="nuclearpedia-details" class="nuclearpedia-details section">
+    <!-- Upload Section -->
+    <section id="upload-section" class="upload-section section">
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-8">
-            <div class="nuclearpedia-details-slider swiper init-swiper">
-
-              <script type="application/json" class="swiper-config">
-                {
-                  "loop": true,
-                  "speed": 600,
-                  "autoplay": {
-                    "delay": 5000
-                  },
-                  "slidesPerView": "auto",
-                  "pagination": {
-                    "el": ".swiper-pagination",
-                    "type": "bullets",
-                    "clickable": true
-                  }
-                }
-              </script>
-
-              <div class="swiper-wrapper align-items-center">
-
-                <div class="swiper-slide">
-                  <img src="{{ asset('template/assets/img/nuclearpedia/app-1.jpg') }}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{{ asset('template/assets/img/nuclearpedia/product-1.jpg') }}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{{ asset('template/assets/img/nuclearpedia/branding-1.jpg') }}" alt="">
-                </div>
-
-                <div class="swiper-slide">
-                  <img src="{{ asset('template/assets/img/nuclearpedia/books-1.jpg') }}" alt="">
-                </div>
-
-              </div>
-              <div class="swiper-pagination"></div>
-            </div>
+      <div class="container" data-aos="fade-up">
+        <form action="{{ route('nuclearpedia.store') }}" method="POST" enctype="multipart/form-data">
+          @csrf
+          <div class="mb-3">
+            <label for="judul" class="form-label">Judul</label>
+            <input type="text" class="form-control" id="judul" name="judul" required>
           </div>
-
-          <div class="col-lg-4">
-            <div class="nuclearpedia-info" data-aos="fade-up" data-aos-delay="200">
-              <h3>Project information</h3>
-              <ul>
-                <li><strong>Category</strong>: Web design</li>
-                <li><strong>Client</strong>: ASU Company</li>
-                <li><strong>Project date</strong>: 01 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
-              </ul>
-            </div>
-            <div class="nuclearpedia-description" data-aos="fade-up" data-aos-delay="300">
-              <h2>Exercitationem repudiandae officiis neque suscipit</h2>
-              <p>
-                Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia. Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt eius.
-              </p>
-            </div>
+          <div class="mb-3">
+            <label for="deskripsi" class="form-label">Deskripsi Singkat</label>
+            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required></textarea>
           </div>
-
-        </div>
-
+          <div class="mb-3">
+            <label for="file" class="form-label">File (docx/pdf)</label>
+            <input type="file" class="form-control" id="file" name="file" accept=".docx,.pdf" required>
+          </div>
+          <div class="mb-3">
+            <label for="gambar" class="form-label">Gambar (png/jpg/img)</label>
+            <input type="file" class="form-control" id="gambar" name="gambar" accept=".png,.jpg,.jpeg" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
       </div>
 
-    </section><!-- /nuclearpedia Details Section -->
+    </section><!-- /Upload Section -->
 
   </main>
 

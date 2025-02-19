@@ -28,14 +28,14 @@
   <link href="{{ asset('template/assets/css/main.css') }}" rel="stylesheet">
 </head>
 
-<body class="upload-page">
+<body class="upload-page" >
 
   @include('Template.topbar')
 
   <main class="main">
 
     <!-- Page Title -->
-    <div class="page-title" data-aos="fade">
+    <div class="page-title" data-aos="fade" style="margin-top: 85px;">
       <div class="container">
         <nav class="breadcrumbs">
           <ol>

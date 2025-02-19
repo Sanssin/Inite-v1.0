@@ -29,27 +29,30 @@ class UploadNuclearpediaController extends Controller
         $item = Item::create([
             'title' => $request->judul,
             'description' => $request->deskripsi,
-            'slug' => Str::slug($request->title),
+            'slug' => Str::slug($request->judul),
         ]);
 
-        // Simpan file materi ke storage
-        $filePath = $request->file('file')->store('nuclearpedia', 'public');
+        // Simpan file materi dengan nama asli
+        $fileName = time() . '-' . $request->file('file')->getClientOriginalName(); // Tambah timestamp agar unik
+        $filePath = $request->file('file')->storeAs('nuclearpedia', $fileName, 'public');
 
         // Simpan data ke tabel `nuclearpedia`
         Nuclearpedia::create([
-            'item_id' => $item->id, // Foreign key ke item
-            'file_path' => Storage::url($filePath),
+            'item_id' => $item->id,
+            'file_path' => $filePath, // Simpan path relatif
         ]);
 
-        // Simpan gambar ke storage
-        $imagePath = $request->file('gambar')->store('images', 'public');
+        // Simpan gambar dengan nama asli
+        $imageName = time() . '-' . $request->file('gambar')->getClientOriginalName();
+        $imagePath = $request->file('gambar')->storeAs('images', $imageName, 'public');
 
         // Simpan data ke tabel `image`
         Image::create([
-            'item_id' => $item->id, // Foreign key ke item
-            'image_path' => Storage::url($imagePath),
+            'item_id' => $item->id,
+            'image_path' => $imagePath,
         ]);
 
         return redirect()->route('nuclearpedia.create')->with('success', 'Materi berhasil diupload!');
     }
+
 }

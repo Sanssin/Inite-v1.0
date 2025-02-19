@@ -9,13 +9,14 @@
 
       <nav id="navmenu" class="navmenu">
       <ul>
-          <li><a href="{{ request()->route('slug') ? url('/') . '#hero' : '#hero' }}" class="active">Home</a></li>
-          <li><a href="{{ request()->route('slug') ? url('/') . '#about' : '#about' }}">About</a></li>
-          <li><a href="{{ request()->route('slug') ? url('/') . '#upload' : '#upload' }}"></a></li>
-          <li><a href="{{ request()->route('slug') ? url('/') . '#services' : '#services' }}">Services</a></li>
-          <li><a href="{{ request()->route('slug') ? url('/') . '#nuclearpedia' : '#nuclearpedia' }}">Nuclearpedia</a></li>
-          <li><a href="{{ request()->route('slug') ? url('/') . '#team' : '#team' }}">Team</a></li>
-          <li><a href="{{ request()->route('slug') ? url('/') . '#contact' : '#contact' }}">Contact</a></li>
+          <li><a href="{{ request()->is('/') ? '#hero' : url('/#hero') }}">Home</a></li>
+          <li><a href="{{ request()->is('/') ? '#about' : url('/#about') }}">About</a></li>
+          <li><a href="{{ request()->is('/') ? '#services' : url('/#services') }}">Services</a></li>
+          <li><a href="{{ request()->is('/') ? url('/upload') : 'upload' }}">Upload</a></li>
+          <li><a href="{{ request()->is('/') ? '#nuclearpedia' : url('/#nuclearpedia') }}">Nuclearpedia</a></li>
+          <li><a href="{{ request()->is('/') ? '#team' : url('/#team') }}">Team</a></li>
+          <li><a href="{{ request()->is('/') ? '#contact' : url('/#contact') }}">Contact</a></li>
+          
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>

@@ -128,7 +128,7 @@
               <h3>Informasi Materi</h3>
                 <ul>
                   <li><strong>Judul</strong>: {{ $title }}</li>
-                  <li><strong>Kategori</strong>: {{ $category }}</li>
+                  <li><strong>Author</strong>: {{ $author }}</li>
                   <li><strong>Publikasi</strong>: {{ $date }}</li>
                 </ul>
             </div>

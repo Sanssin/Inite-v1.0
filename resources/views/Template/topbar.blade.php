@@ -12,7 +12,7 @@
           <li><a href="{{ request()->is('/') ? '#hero' : url('/#hero') }}">Home</a></li>
           <li><a href="{{ request()->is('/') ? '#about' : url('/#about') }}">About</a></li>
           <li><a href="{{ request()->is('/') ? '#services' : url('/#services') }}">Services</a></li>
-          <li><a href="{{ request()->is('/') ? url('/upload') : 'upload' }}">Upload</a></li>
+          <li><a href="{{ request()->is('/') ? url('/upload') : url('/upload') }}">Upload</a></li>
           <li><a href="{{ request()->is('/') ? '#nuclearpedia' : url('/#nuclearpedia') }}">Nuclearpedia</a></li>
           <li><a href="{{ request()->is('/') ? '#team' : url('/#team') }}">Team</a></li>
           <li><a href="{{ request()->is('/') ? '#contact' : url('/#contact') }}">Contact</a></li>

@@ -1889,3 +1889,42 @@ section,
   color: var(--accent-color);
 }
 
+/* Halaman Upload*/
+.upload-page {
+  background: #f8f9fa;
+}
+.upload-section {
+  padding: 60px 0;
+}
+.upload-card {
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  padding: 30px;
+}
+.form-label {
+  font-weight: 600;
+  color: #495057;
+}
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #ced4da;
+  padding: 10px;
+}
+.form-control:focus {
+  border-color: #80bdff;
+  box-shadow: 0 0 5px rgba(128, 189, 255, 0.5);
+}
+.btn-primary {
+  background: linear-gradient(135deg, #6a11cb, #2575fc);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(106, 17, 203, 0.3);
+}

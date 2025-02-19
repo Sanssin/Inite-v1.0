@@ -38,7 +38,7 @@ class NuclearpediaController extends Controller
         if (!$fileRecord) {
             return view('Template.nuclearpediaDetail', [
                 'title' => 'Tidak Ditemukan',
-                'category' => '-',
+                'author' => '-',
                 'date' => '-',
                 'content' => 'File tidak ditemukan di database.',
                 'image' => []
@@ -62,7 +62,7 @@ class NuclearpediaController extends Controller
         if (!file_exists($filePath)) {
             return view('Template.nuclearpediaDetail', [
                 'title' => $fileRecord->item->title ?? 'Tanpa Judul',
-                'category' => $fileRecord->item->category ?? '-',
+                'author' => $fileRecord->item->author ?? '-',
                 'date' => $fileRecord->created_at->format('d M Y'),
                 'content' => 'File materi tidak ditemukan.',
                 'image' => $image,
@@ -83,7 +83,7 @@ class NuclearpediaController extends Controller
 
         return view('Template.nuclearpediaDetail', [
             'title' => $fileRecord->item->title ?? 'Tanpa Judul',
-            'category' => $fileRecord->item->category ?? '-',
+            'author' => $fileRecord->item->author ?? '-',
             'date' => $fileRecord->created_at->format('d M Y'),
             'content' => $content,
             'image' => $image,

@@ -11,7 +11,7 @@ class Item extends Model
     use HasFactory, Sluggable; 
 
     protected $table = 'items';
-    protected $fillable = ['title', 'description', 'slug'];
+    protected $fillable = ['title', 'description', 'author', 'slug'];
 
     /**
      * Relasi dengan model Image

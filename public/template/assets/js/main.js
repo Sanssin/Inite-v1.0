@@ -124,7 +124,7 @@
   
       // Ambil konten JSON dan trim spasi
       let configContent = configElement.innerHTML.trim();
-      console.log("Swiper config content:", configContent); // Debugging
+      // console.log("Swiper config content:", configContent); // Debugging
   
       let config;
       try {

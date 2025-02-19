@@ -62,6 +62,10 @@
             <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3" required></textarea>
           </div>
           <div class="mb-3">
+            <label for="author" class="form-label">Author</label>
+            <textarea class="form-control" id="author" name="author" required></textarea>
+          </div>
+          <div class="mb-3">
             <label for="file" class="form-label">File (docx/pdf)</label>
             <input type="file" class="form-control" id="file" name="file" accept=".docx,.pdf" required>
           </div>

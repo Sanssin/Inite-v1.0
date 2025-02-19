@@ -18,6 +18,7 @@ class ItemSeeder extends Seeder
         $item = Item::create([
             'title' => 'Reaksi Fisi dan Fusi ',
             'description' => 'Reaksi Fisi dan Fusi merupakan reaksi pada inti atom',
+            'author' => 'Admin',
         ]);
 
         Image::create([

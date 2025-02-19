@@ -21,6 +21,7 @@ class UploadNuclearpediaController extends Controller
         $request->validate([
             'judul' => 'required|string|max:255',
             'deskripsi' => 'required|string',
+            'author' => 'required|string',
             'file' => 'required|mimes:docx,pdf|max:2048',
             'gambar' => 'required|mimes:png,jpg,jpeg|max:2048',
         ]);
@@ -29,6 +30,7 @@ class UploadNuclearpediaController extends Controller
         $item = Item::create([
             'title' => $request->judul,
             'description' => $request->deskripsi,
+            'author' => $request->author,
             'slug' => Str::slug($request->judul),
         ]);
 

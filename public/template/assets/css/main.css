@@ -1928,3 +1928,33 @@ section,
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(106, 17, 203, 0.3);
 }
+
+
+.form-label::before {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 8px;
+}
+label[for="judul"]::before {
+  content: "\f1dc"; 
+}
+label[for="deskripsi"]::before {
+  content: "\f15c"; 
+}
+label[for="author"]::before {
+  content: "\f007"; 
+}
+label[for="file"]::before {
+  content: "\f574"; 
+}
+label[for="gambar"]::before {
+  content: "\f03e"; 
+}
+
+.btn-primary::before {
+  content: "\f093"; 
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  margin-right: 8px;
+}
+

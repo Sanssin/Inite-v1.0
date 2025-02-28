@@ -57,7 +57,7 @@
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-            <img src="{{ asset('template/assets/img/nuclear.png') }}" class="img-fluid animated" alt="" style="max-width: auto; height: 85%;" >
+            <img src="{{ asset('template/assets/img/atom.png') }}" class="img-fluid animated" alt="" style="max-width: auto; height: 85%; margin-left: 50px;" >
           </div>
         </div>
       </div>
@@ -160,6 +160,26 @@
       </div>
 
     </section><!-- /Why Us Section -->
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach((item) => {
+      const toggle = item.querySelector(".faq-toggle");
+      toggle.addEventListener("click", function () {
+        // Tutup semua FAQ sebelum membuka yang diklik
+        faqItems.forEach((faq) => {
+          if (faq !== item) {
+            faq.classList.remove("faq-active");
+          }
+        });
+
+        // Toggle kelas faq-active pada elemen yang diklik
+        item.classList.toggle("faq-active");
+      });
+    });
+  });
+</script>
 
     <!-- Services Section -->
     <section id="services" class="services section light-background">

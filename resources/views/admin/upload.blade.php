@@ -24,6 +24,9 @@
   <link href="{{ asset('template/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
   <link href="{{ asset('template/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
   <!-- Main CSS File -->
   <link href="{{ asset('template/assets/css/main.css') }}" rel="stylesheet">
 </head>
@@ -54,8 +57,8 @@
         <form action="{{ route('nuclearpedia.store') }}" method="POST" enctype="multipart/form-data">
           @csrf
           <div class="mb-3">
-            <label for="judul" class="form-label">Judul</label>
-            <input type="text" class="form-control" id="judul" name="judul" required>
+            <label for="judul" class="form-label"> Judul</label>
+            <input type="text" class="form-control shadow-sm" id="judul" name="judul" required>
           </div>
           <div class="mb-3">
             <label for="deskripsi" class="form-label">Deskripsi Singkat</label>
@@ -98,6 +101,7 @@
   <script src="{{ asset('template/assets/vendor/waypoints/noframework.waypoints.js') }}"></script>
   <script src="{{ asset('template/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
   <script src="{{ asset('template/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+
 
   <!-- Main JS File -->
   <script src="{{ asset('template/assets/js/main.js') }}"></script>

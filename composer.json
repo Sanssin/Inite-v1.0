@@ -13,7 +13,7 @@
         "laravel/tinker": "^2.8",
         "phpoffice/phpword": "^1.3",
         "smalot/pdfparser": "^2.11",
-        "spatie/laravel-permission": "^6.13"
+        "spatie/laravel-permission": "^6.15"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

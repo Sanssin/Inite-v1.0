@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\NuclearpediaController;
 use App\Http\Controllers\UploadNuclearpediaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,4 +21,5 @@ Route::get('/nuclearpedia', [NuclearpediaController::class, 'index'])->name('nuc
 Route::get('/nuclearpedia/{slug}', [NuclearpediaController::class, 'showDetailBySlug'])->name('nuclearpedia.detail');
 Route::get('/nuclearpedia/{id}', [NuclearpediaController::class, 'showDetailById'])->name('nuclearpedia.detail');
 Route::get('/upload', [UploadNuclearpediaController::class, 'create'])->name('nuclearpedia.create');
-Route::post('/upload', [UploadNuclearpediaController::class, 'store'])->name('nuclearpedia.store');   
+Route::post('/upload', [UploadNuclearpediaController::class, 'store'])->name('nuclearpedia.store');
+// Route::get('/', [UserController::class, 'profile'])->name('Template.topbar');   

@@ -32,8 +32,8 @@
           <div class="card" style="width: 18rem;">
             <img src="{{ asset('template/assets/img/default.png') }}" class="card-img-top rounded-circle mx-auto mt-3" alt="Profile Picture" style="width: 80px; height: 80px;">
             <div class="card-body text-center">
-              <h3 class="card-title">Guest</h3>
-              <p class="card-text text-muted">user@example.com</p>
+              <h3 class="card-title">Ihsan</h3>
+              <p class="card-text text-muted">ini</p>
               <hr>
               <a href="#" class="btn btn-primary btn-sm w-100 mb-2">Profile</a>
               <a href="#" class="btn btn-secondary btn-sm w-100 mb-2">Settings</a>

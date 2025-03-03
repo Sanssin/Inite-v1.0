@@ -21,6 +21,7 @@ class User extends Authenticatable
     protected $fillable = [
         'firstName',
         'lastName',
+        'username',
         'email',
         'password',
     ];
@@ -44,5 +45,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function isAdmin ()
+    {
+        return $this->hasRole('Admin');
+    }
 
 }

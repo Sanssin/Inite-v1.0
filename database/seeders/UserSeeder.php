@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
             [
                 'firstName' => 'Husein', // Ganti dengan nama pengguna yang diinginkan
                 'lastName' => 'Kurnia',
+                'username' => 'Husein Kurnia',
                 'password' => Hash::make("password"), // Ganti dengan password yang diinginkan
             ]
         );
